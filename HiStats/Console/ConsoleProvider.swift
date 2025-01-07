@@ -10,7 +10,9 @@ import HiLog
 
 open class ConsoleProvider: HiStats.ProviderType {
     
-    public func stat(_ eventName: String, parameters: [String: Any]?) {
+    public init() { }
+    
+    public func stats(_ eventName: String, parameters: [String: Any]?) {
         HiLog.log("\(eventName): \(parameters ?? [:])", module: .statistic, level: .info)
     }
     

@@ -35,7 +35,7 @@ public extension RuntimeProviderType {
         }
     }
     
-    func stat(_ eventName: String, parameters: [String: Any]?) {
+    func stats(_ eventName: String, parameters: [String: Any]?) {
         guard self.responds else { return }
         if let instance = self.instance {
             _ = instance.perform(self.selector, with: eventName, with: parameters)

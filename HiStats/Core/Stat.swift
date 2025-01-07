@@ -1,11 +1,11 @@
 public protocol AnalyticsType {
     associatedtype Event: EventType
     func register(provider: ProviderType)
-    func stat(_ event: Event)
+    func stats(_ event: Event)
 }
 
 public protocol ProviderType {
-    func stat(_ eventName: String, parameters: [String: Any]?)
+    func stats(_ eventName: String, parameters: [String: Any]?)
 }
 
 public protocol EventType {
@@ -24,11 +24,11 @@ open class Analytics<Event: EventType>: AnalyticsType {
         self.providers.append(provider)
     }
     
-    open func stat(_ event: Event) {
+    open func stats(_ event: Event) {
         for provider in self.providers {
             guard let eventName = event.name(for: provider) else { continue }
             let parameters = event.parameters(for: provider)
-            provider.stat(eventName, parameters: parameters)
+            provider.stats(eventName, parameters: parameters)
         }
     }
 }
