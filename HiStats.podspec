@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'HiStats'
-  s.version          = '1.0.0'
+  s.version          = '1.0.1'
   s.summary          = 'Analytics abstraction layer'
   s.description      = <<-DESC
 						Analytics abstraction layer for Swift.
